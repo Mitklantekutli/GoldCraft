@@ -15,12 +15,12 @@ namespace Game.Core.Console
             var p = new Player() {Id = 1, Name = "QWE"};
             var pg = new PlayerGame(p);
             pg.Gold += 250;
-            core.Game.Players.Add(pg);
+            core.GameInstance.Players.Add(pg);
             pg.GoldMine.Building.Upgrader.Upgrade(pg);
             pg.GoldMine.Building.Upgrader.Upgrade(pg);
             core.OnTick += (s, e) =>
             {
-                var cp = e.Game.Players.First();
+                var cp = e.GameInstance.Players.First();
                 System.Console.WriteLine(e.Time);
                 System.Console.WriteLine(cp.Gold);
                 System.Console.WriteLine(cp.GoldMineCurrentTimer/1000);

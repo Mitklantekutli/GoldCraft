@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Game.Model.GameEvents;
@@ -12,7 +10,7 @@ namespace Game.Core
     {
         private bool Active { get; set; }
 
-        public Model.GameEvents.Game Game { get; set; }
+        public Model.GameEvents.GameInstance GameInstance { get; set; }
 
         public GameEventHandler Handler { get; set; }
 
@@ -24,8 +22,8 @@ namespace Game.Core
         {
             Delta = 100;
             Events = new List<GameEvent>();
-            Game = new Model.GameEvents.Game();
-            Handler = new GameEventHandler(Game);
+            GameInstance = new Model.GameEvents.GameInstance();
+            Handler = new GameEventHandler(GameInstance);
             
         }
 

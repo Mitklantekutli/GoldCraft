@@ -18,27 +18,40 @@ namespace Game.Model.GameEvents
     public class PlayerConnected : GameEvent
     {
         public Player Player { get; set; }
-        public PlayerConnected()
+        public PlayerConnected(Player player)
         {
+            Player = player;
             EvType = GameEventType.PlayerConnected;
+        }
+    }
+
+    public class PlayerGoldChanged : GameEvent
+    {
+        public Player Player { get; set; }
+        public int Delta { get; set; }
+
+        public PlayerGoldChanged(Player player)
+        {
+            Player = player;
+            EvType = GameEventType.PlayerGoldChanged;
         }
     }
 
     public enum GameEventType
     {
         PlayerConnected,
-
+        PlayerGoldChanged
     }
 
     #endregion
 
     public class GameEventHandler
     {
-        public Game Game { get; set; }
+        public GameInstance GameInstance { get; set; }
 
-        public GameEventHandler(Game game)
+        public GameEventHandler(GameInstance gameInstance)
         {
-            Game = game;
+            GameInstance = gameInstance;
         }
 
         public void Apply(List<GameEvent> events)
@@ -62,7 +75,7 @@ namespace Game.Model.GameEvents
 
         public void OnTick(double delta)
         {
-            Game.OnTick(delta);
+            GameInstance.OnTick(delta);
         }
     }
 
@@ -77,13 +90,13 @@ namespace Game.Model.GameEvents
         }
     }
 
-    public class Game
+    public class GameInstance
     {
         public long Id { get; set; }
         public List<PlayerGame> Players { get; set; }
         public bool Active { get; set; }
 
-        public Game()
+        public GameInstance()
         {
             Players = new List<PlayerGame>();
         }
