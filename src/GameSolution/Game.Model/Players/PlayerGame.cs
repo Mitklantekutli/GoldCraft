@@ -1,4 +1,7 @@
-﻿namespace Game.Model.GameEvents
+﻿using Game.Model.Buildings;
+using Game.Model.GameEvents;
+
+namespace Game.Model.Players
 {
     public class PlayerGame : IMoneyOwner
     {
@@ -7,15 +10,12 @@
 
         #region Timers
 
-        public const double GoldMineTimer = 5*1000;
-        public double GoldMineCurrentTimer = GoldMineTimer;
-
         #endregion
 
         public PlayerGame(Player player)
         {
             Player = player;
-            GoldMine = new GoldMine();
+            GoldMine = new GoldMine(this);
         }
 
         #region Money
@@ -34,14 +34,10 @@
 
         public GoldMine GoldMine { get; set; }
 
+
         public void OnTick(double delta)
         {
-            GoldMineCurrentTimer -= delta;
-            if (GoldMineCurrentTimer <= 0)
-            {
-                GoldMineCurrentTimer = GoldMineTimer;
-                Gold += GoldMine.Income;
-            }
+            GoldMine.OnTick(delta);
         }
     }
 }

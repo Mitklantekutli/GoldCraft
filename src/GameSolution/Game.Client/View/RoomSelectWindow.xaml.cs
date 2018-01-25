@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Game.Client
+namespace Game.Client.View
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for RoomSelectWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class RoomSelectWindow : Window
     {
-        public MainWindow()
+        public RoomSelectWindow()
         {
             InitializeComponent();
         }

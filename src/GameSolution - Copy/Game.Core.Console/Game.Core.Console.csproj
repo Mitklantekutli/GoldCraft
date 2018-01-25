@@ -4,16 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{18A5B690-EF45-4478-8339-20DFD8DC1BE4}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Game.Model</RootNamespace>
-    <AssemblyName>Game.Model</AssemblyName>
+    <ProjectGuid>{C4B3C6F6-A5ED-4873-8C4C-8F7D9B0901AA}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Game.Core.Console</RootNamespace>
+    <AssemblyName>Game.Core.Console</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -41,28 +43,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Buildings\Bank.cs" />
-    <Compile Include="Buildings\BuildInfrastructure\AddBuildingUpgrader.cs" />
-    <Compile Include="Buildings\BuildInfrastructure\Building.cs" />
-    <Compile Include="Buildings\BuildInfrastructure\BuildingFactory.cs" />
-    <Compile Include="Buildings\BuildInfrastructure\BuildingUpgrader.cs" />
-    <Compile Include="Buildings\BuildInfrastructure\ExpBuildingUpgrader.cs" />
-    <Compile Include="Buildings\Doghouse.cs" />
-    <Compile Include="Buildings\RogueCamp.cs" />
-    <Compile Include="Buildings\SpyCamp.cs" />
-    <Compile Include="Buildings\TickBuilding.cs" />
-    <Compile Include="GameEvents\GameEvent.cs" />
-    <Compile Include="GameEvents\GameEventHandler.cs" />
-    <Compile Include="GameEvents\GameEventType.cs" />
-    <Compile Include="GameEvents\GameInstance.cs" />
-    <Compile Include="Buildings\GoldMine.cs" />
-    <Compile Include="GameEvents\IMoneyOwner.cs" />
-    <Compile Include="Players\Player.cs" />
-    <Compile Include="GameEvents\PlayerConnected.cs" />
-    <Compile Include="Players\PlayerGame.cs" />
-    <Compile Include="GameEvents\PlayerGoldChanged.cs" />
-    <Compile Include="Players\Room.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Game.Core.Test\Game.Core.Test.csproj">
+      <Project>{ba168898-e54e-4b3c-b7d6-2b52272c5193}</Project>
+      <Name>Game.Core.Test</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Game.Core\Game.Core.csproj">
+      <Project>{5748ed1a-219d-4a30-9f15-78ebbd474c7c}</Project>
+      <Name>Game.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

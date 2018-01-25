@@ -41,27 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Buildings\Bank.cs" />
-    <Compile Include="Buildings\BuildInfrastructure\AddBuildingUpgrader.cs" />
-    <Compile Include="Buildings\BuildInfrastructure\Building.cs" />
-    <Compile Include="Buildings\BuildInfrastructure\BuildingFactory.cs" />
-    <Compile Include="Buildings\BuildInfrastructure\BuildingUpgrader.cs" />
-    <Compile Include="Buildings\BuildInfrastructure\ExpBuildingUpgrader.cs" />
-    <Compile Include="Buildings\Doghouse.cs" />
-    <Compile Include="Buildings\RogueCamp.cs" />
-    <Compile Include="Buildings\SpyCamp.cs" />
-    <Compile Include="Buildings\TickBuilding.cs" />
+    <Compile Include="Class1.cs" />
     <Compile Include="GameEvents\GameEvent.cs" />
-    <Compile Include="GameEvents\GameEventHandler.cs" />
-    <Compile Include="GameEvents\GameEventType.cs" />
-    <Compile Include="GameEvents\GameInstance.cs" />
-    <Compile Include="Buildings\GoldMine.cs" />
-    <Compile Include="GameEvents\IMoneyOwner.cs" />
-    <Compile Include="Players\Player.cs" />
-    <Compile Include="GameEvents\PlayerConnected.cs" />
-    <Compile Include="Players\PlayerGame.cs" />
-    <Compile Include="GameEvents\PlayerGoldChanged.cs" />
-    <Compile Include="Players\Room.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

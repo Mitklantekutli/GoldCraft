@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{18A5B690-EF45-4478-8339-20DFD8DC1BE4}</ProjectGuid>
+    <ProjectGuid>{5748ED1A-219D-4A30-9F15-78EBBD474C7C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Game.Model</RootNamespace>
-    <AssemblyName>Game.Model</AssemblyName>
+    <RootNamespace>Game.Core</RootNamespace>
+    <AssemblyName>Game.Core</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -41,28 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Buildings\Bank.cs" />
-    <Compile Include="Buildings\BuildInfrastructure\AddBuildingUpgrader.cs" />
-    <Compile Include="Buildings\BuildInfrastructure\Building.cs" />
-    <Compile Include="Buildings\BuildInfrastructure\BuildingFactory.cs" />
-    <Compile Include="Buildings\BuildInfrastructure\BuildingUpgrader.cs" />
-    <Compile Include="Buildings\BuildInfrastructure\ExpBuildingUpgrader.cs" />
-    <Compile Include="Buildings\Doghouse.cs" />
-    <Compile Include="Buildings\RogueCamp.cs" />
-    <Compile Include="Buildings\SpyCamp.cs" />
-    <Compile Include="Buildings\TickBuilding.cs" />
-    <Compile Include="GameEvents\GameEvent.cs" />
-    <Compile Include="GameEvents\GameEventHandler.cs" />
-    <Compile Include="GameEvents\GameEventType.cs" />
-    <Compile Include="GameEvents\GameInstance.cs" />
-    <Compile Include="Buildings\GoldMine.cs" />
-    <Compile Include="GameEvents\IMoneyOwner.cs" />
-    <Compile Include="Players\Player.cs" />
-    <Compile Include="GameEvents\PlayerConnected.cs" />
-    <Compile Include="Players\PlayerGame.cs" />
-    <Compile Include="GameEvents\PlayerGoldChanged.cs" />
-    <Compile Include="Players\Room.cs" />
+    <Compile Include="GameCore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Game.Model\Game.Model.csproj">
+      <Project>{18a5b690-ef45-4478-8339-20dfd8dc1be4}</Project>
+      <Name>Game.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

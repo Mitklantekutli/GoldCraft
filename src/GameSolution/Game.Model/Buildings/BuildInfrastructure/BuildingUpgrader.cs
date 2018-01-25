@@ -1,4 +1,6 @@
-﻿namespace Game.Model.GameEvents
+﻿using Game.Model.GameEvents;
+
+namespace Game.Model.Buildings
 {
     public abstract class BuildingUpgrader
     {

@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using Game.Model.GameEvents;
+using Game.Model.Players;
 
 namespace Game.Api.Controllers
 {

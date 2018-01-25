@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Game.Model.GameEvents;
+using Game.Model.Players;
 
 namespace Game.Core.Console
 {
@@ -23,7 +24,7 @@ namespace Game.Core.Console
                 var cp = e.GameInstance.Players.First();
                 System.Console.WriteLine(e.Time);
                 System.Console.WriteLine(cp.Gold);
-                System.Console.WriteLine(cp.GoldMineCurrentTimer/1000);
+                System.Console.WriteLine(cp.GoldMine.RefreshTimeLeft/1000);
             };
             core.Start();
             

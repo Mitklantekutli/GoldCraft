@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Game.Model.Players;
 
 namespace Game.Model.GameEvents
 {
@@ -15,7 +16,10 @@ namespace Game.Model.GameEvents
 
         public void OnTick(double delta)
         {
-            Players.ForEach(x=>x.OnTick(delta));
+            Players.ForEach(x=>
+            {
+                x.OnTick(delta);
+            });
         }
     }
 }
