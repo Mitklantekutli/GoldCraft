@@ -36,6 +36,11 @@ namespace Game.Model.GameEvents
     {
         public Game Game { get; set; }
 
+        public GameEventHandler(Game game)
+        {
+            Game = game;
+        }
+
         public void Apply(List<GameEvent> events)
         {
             events.ForEach(Apply);
@@ -47,13 +52,17 @@ namespace Game.Model.GameEvents
             {
                 case GameEventType.PlayerConnected:
                 {
-                    var pc = gevent as PlayerConnected;
-                    Game.Players.Add(pc.Player);
+                    
                     break;
                 }
                 default:
                     throw new ArgumentOutOfRangeException();
             }
+        }
+
+        public void OnTick(double delta)
+        {
+            Game.OnTick(delta);
         }
     }
 
@@ -71,12 +80,17 @@ namespace Game.Model.GameEvents
     public class Game
     {
         public long Id { get; set; }
-        public List<Player> Players { get; set; }
+        public List<PlayerGame> Players { get; set; }
         public bool Active { get; set; }
 
         public Game()
         {
-            Players = new List<Player>();
+            Players = new List<PlayerGame>();
+        }
+
+        public void OnTick(double delta)
+        {
+            Players.ForEach(x=>x.OnTick(delta));
         }
     }
 
@@ -88,7 +102,21 @@ namespace Game.Model.GameEvents
 
     public class PlayerGame : IMoneyOwner
     {
+        public Player Player { get; set; }
         public int Gold { get; set; }
+
+        #region Timers
+
+        public const double GoldMineTimer = 5*1000;
+        public double GoldMineCurrentTimer = GoldMineTimer;
+
+        #endregion
+
+        public PlayerGame(Player player)
+        {
+            Player = player;
+            GoldMine = new GoldMine();
+        }
 
         #region Money
 
@@ -104,7 +132,17 @@ namespace Game.Model.GameEvents
 
         #endregion
 
+        public GoldMine GoldMine { get; set; }
 
+        public void OnTick(double delta)
+        {
+            GoldMineCurrentTimer -= delta;
+            if (GoldMineCurrentTimer <= 0)
+            {
+                GoldMineCurrentTimer = GoldMineTimer;
+                Gold += GoldMine.Income;
+            }
+        }
     }
 
     public class Building
@@ -117,10 +155,12 @@ namespace Game.Model.GameEvents
 
     public abstract class BuildingUpgrader
     {
+        private readonly Building _building;
         public int Cost { get; set; }
 
-        public BuildingUpgrader(int cost)
+        public BuildingUpgrader(int cost, Building building)
         {
+            _building = building;
             Cost = cost;
         }
 
@@ -128,6 +168,7 @@ namespace Game.Model.GameEvents
         {
             moneyOwner.DecreaseMoney(Cost);
             IncreaseCost();
+            _building.Level++;
         }
 
         public abstract void IncreaseCost();
@@ -137,7 +178,7 @@ namespace Game.Model.GameEvents
     {
         private readonly int _expFactor;
 
-        public ExpBuildingUpgrader(int cost, int expFactor):base(cost)
+        public ExpBuildingUpgrader(int cost, int expFactor, Building building) :base(cost, building)
         {
             _expFactor = expFactor;
         }
@@ -153,7 +194,7 @@ namespace Game.Model.GameEvents
         private readonly int _addFactor;
 
 
-        public AddBuildingUpgrader(int cost, int addFactor) : base(cost)
+        public AddBuildingUpgrader(int cost, int addFactor, Building building) : base(cost, building)
         {
             _addFactor = addFactor;
         }
@@ -174,62 +215,65 @@ namespace Game.Model.GameEvents
     {
         public static Building GoldMine()
         {
-            return new Building()
+            var b = new Building()
             {
                 Level = 0,
                 Name = "Шахта",
-                Upgrader = new AddBuildingUpgrader(50, 50)
             };
+            b.Upgrader = new AddBuildingUpgrader(50, 50, b);
+            return b;
         }
 
         public static Building RogueCamp()
         {
-            return new Building()
+            var b = new Building()
             {
                 Level = 0,
                 Name = "Лагерь разбойников",
-                Upgrader = new ExpBuildingUpgrader(100, 2)
             };
+            b.Upgrader = new ExpBuildingUpgrader(100, 2, b);
+            return b;
         }
 
         public static Building Bank()
         {
-            return new Building()
+            var b = new Building()
             {
                 Level = 0,
                 Name = "Банк",
-                Upgrader = new ExpBuildingUpgrader(100, 2)
             };
+            b.Upgrader = new ExpBuildingUpgrader(100, 2, b);
+            return b;
         }
 
         public static Building SpyGuild()
         {
-            return new Building()
+            var b = new Building()
             {
                 Level = 0,
                 Name = "Гильдия шпионов",
-                Upgrader = new ExpBuildingUpgrader(100, 2)
             };
+            b.Upgrader = new ExpBuildingUpgrader(100, 2, b);
+            return b;
         }
 
         public static Building Doghouse()
         {
-            return new Building()
+            var b = new Building()
             {
                 Level = 0,
                 Name = "Собачатня",
-                Upgrader = new ExpBuildingUpgrader(100, 2)
             };
+            b.Upgrader = new ExpBuildingUpgrader(100, 2, b);
+            return b;
         }
     }
 
     public class GoldMine
     {
-        private readonly PlayerGame _player;
-
-        public GoldMine(PlayerGame player)
+        public GoldMine()
         {
-            _player = player;
+            Building = BuildingFactory.GoldMine();
         }
 
         public Building Building { get; set; }

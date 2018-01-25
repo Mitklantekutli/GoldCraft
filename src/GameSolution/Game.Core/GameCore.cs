@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Game.Model.GameEvents;
 
 namespace Game.Core
 {
@@ -13,12 +14,37 @@ namespace Game.Core
 
         public Model.GameEvents.Game Game { get; set; }
 
+        public GameEventHandler Handler { get; set; }
+
 
         public double Time { get; set; }
         public double Delta { get; set; }
 
         public GameCore()
         {
+            Delta = 100;
+            Events = new List<GameEvent>();
+            Game = new Model.GameEvents.Game();
+            Handler = new GameEventHandler(Game);
+            
+        }
+
+        public void Tick()
+        {
+            Time += Delta;
+            OnOnTick(this);
+            HandleEvents();
+            Handler.OnTick(Delta);
+        }
+
+        private void HandleEvents()
+        {
+            
+        }
+
+        public void Start()
+        {
+            Active = true;
             var starter = new Task(() =>
             {
                 while (Active)
@@ -30,19 +56,23 @@ namespace Game.Core
             starter.Start();
         }
 
-        public void Tick()
-        {
-            Time += Delta;
-        }
-
-        public void Start()
-        {
-            Active = true;
-        }
-
         public void Stop()
         {
             Active = false;
+        }
+
+        public event EventHandler<GameCore> OnTick;
+
+        protected virtual void OnOnTick(GameCore e)
+        {
+            OnTick?.Invoke(this, e);
+        }
+
+        public List<GameEvent> Events { get; set; }
+
+        public void AddEvent(GameEvent ge)
+        {
+            Events.Add(ge);
         }
     }
 }
