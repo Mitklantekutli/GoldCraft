@@ -6,10 +6,11 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Results;
 using Game.Model.GameEvents;
+using Game.Model.Players;
 
 namespace Game.Api.Controllers
 {
-    [RoutePrefix("api")]
+    [RoutePrefix("api/room")]
     public class RoomController : ApiController
     {
         [Route("create")]
@@ -19,28 +20,35 @@ namespace Game.Api.Controllers
             return Ok(id);
         }
 
-        [Route("get")]
+        [Route("")]
         public IHttpActionResult Get()
         {
             var r = RoomModule.Get();
             return Ok(r);
         }
 
-        [Route("joinRoom/{roomNumber,roomNumber}")]
+        [Route("{id}")]
+        public IHttpActionResult GetById(long id)
+        {
+            var r = RoomModule.Get(id);
+            return Ok(r);
+        }
+
+        [Route("join/{roomNumber}/{playerNumber}")]
         public IHttpActionResult JoinRoom(int roomNumber, int playerNumber)
         {
             RoomModule.JoinRoom(roomNumber, playerNumber);
             return Ok();
         }
 
-        [Route("leaveRoom/{roomNumber,roomNumber}")]
+        [Route("leave/{roomNumber}/{playerNumber}")]
         public IHttpActionResult LeaveRoom(int roomNumber, int playerNumber)
         {
             RoomModule.LeaveRoom(roomNumber, playerNumber);
             return Ok();
         }
 
-        [Route("kickPlayer/{roomNumber,roomNumber}")]
+        [Route("kick/{roomNumber}/{playerNumber}")]
         public IHttpActionResult KickPlayer(int roomNumber, int playerNumber)
         {
             RoomModule.LeaveRoom(roomNumber, playerNumber);
@@ -61,6 +69,11 @@ namespace Game.Api.Controllers
         public static Dictionary<long, int> Get()
         {
             return Rooms.ToDictionary(x=>x.Id, x=>x.Players.Count);
+        }
+
+        public static Room Get(long id)
+        {
+            return Rooms.SingleOrDefault(x => x.Id == id);
         }
 
         public static int CreateRoom()

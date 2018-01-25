@@ -16,7 +16,10 @@ namespace Game.Model.GameEvents
 
         public void OnTick(double delta)
         {
-            Players.ForEach(x=>x.OnTick(delta));
+            Players.ForEach(x=>
+            {
+                x.OnTick(delta);
+            });
         }
     }
 }

@@ -10,15 +10,12 @@ namespace Game.Model.Players
 
         #region Timers
 
-        public const double GoldMineTimer = 5*1000;
-        public double GoldMineCurrentTimer = GoldMineTimer;
-
         #endregion
 
         public PlayerGame(Player player)
         {
             Player = player;
-            GoldMine = new GoldMine();
+            GoldMine = new GoldMine(this);
         }
 
         #region Money
@@ -37,14 +34,10 @@ namespace Game.Model.Players
 
         public GoldMine GoldMine { get; set; }
 
+
         public void OnTick(double delta)
         {
-            GoldMineCurrentTimer -= delta;
-            if (GoldMineCurrentTimer <= 0)
-            {
-                GoldMineCurrentTimer = GoldMineTimer;
-                Gold += GoldMine.Income;
-            }
+            GoldMine.OnTick(delta);
         }
     }
 }

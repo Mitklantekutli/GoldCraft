@@ -41,11 +41,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Buildings\AddBuildingUpgrader.cs" />
-    <Compile Include="Buildings\Building.cs" />
-    <Compile Include="Buildings\BuildingFactory.cs" />
-    <Compile Include="Buildings\BuildingUpgrader.cs" />
-    <Compile Include="Buildings\ExpBuildingUpgrader.cs" />
+    <Compile Include="Buildings\Bank.cs" />
+    <Compile Include="Buildings\BuildInfrastructure\AddBuildingUpgrader.cs" />
+    <Compile Include="Buildings\BuildInfrastructure\Building.cs" />
+    <Compile Include="Buildings\BuildInfrastructure\BuildingFactory.cs" />
+    <Compile Include="Buildings\BuildInfrastructure\BuildingUpgrader.cs" />
+    <Compile Include="Buildings\BuildInfrastructure\ExpBuildingUpgrader.cs" />
+    <Compile Include="Buildings\Doghouse.cs" />
+    <Compile Include="Buildings\RogueCamp.cs" />
+    <Compile Include="Buildings\SpyCamp.cs" />
+    <Compile Include="Buildings\TickBuilding.cs" />
     <Compile Include="GameEvents\GameEvent.cs" />
     <Compile Include="GameEvents\GameEventHandler.cs" />
     <Compile Include="GameEvents\GameEventType.cs" />
