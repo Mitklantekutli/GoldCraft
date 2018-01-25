@@ -23,7 +23,6 @@ namespace Game.Model.GameEvents
             {
                 case GameEventType.PlayerConnected:
                 {
-                    
                     break;
                 }
                 default:
