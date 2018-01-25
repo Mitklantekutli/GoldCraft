@@ -8,22 +8,29 @@ using Game.Model.GameEvents;
 
 namespace Game.Api.Controllers
 {
+    [RoutePrefix("api")]
     public class PlayerController : ApiController
     {
+        [Route("player")]
         public IHttpActionResult Get()
         {
             var ps = PlayerModule.Players;
-            return Ok(ps);
+            return Ok(ps.ToArray());
         }
-
-        // GET api/<controller>/5
+        [Route("player/{id}")]
         public IHttpActionResult Get(int id)
         {
             var p = PlayerModule.Players.SingleOrDefault(x => x.Id == id);
             return Ok(p);
         }
 
-
+        [Route("player/register")]
+        [HttpGet]
+        public IHttpActionResult Register(string name)
+        {
+            var id = PlayerModule.Add(name);
+            return Ok(id);
+        }
     }
 
     public static class PlayerModule
