@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Game.Client.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace Game.Client
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new LoginWindowModel();
         }
     }
 }
