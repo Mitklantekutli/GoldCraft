@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Game.Model.GameEvents;
+using Game.Model.Players;
 
 namespace Game.Core.Console
 {
