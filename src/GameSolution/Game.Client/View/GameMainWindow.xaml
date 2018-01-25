@@ -8,21 +8,23 @@
         Title="GameMainWindow" Height="600" Width="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="44*"></RowDefinition>
-            <RowDefinition Height="53*"></RowDefinition>
-            <RowDefinition Height="29*"></RowDefinition>
-            <RowDefinition Height="27*"></RowDefinition>
-            <RowDefinition Height="26*"></RowDefinition>
-            <RowDefinition Height="28*"></RowDefinition>
-            <RowDefinition Height="27*"></RowDefinition>
+            <RowDefinition Height="25*"></RowDefinition>
+            <RowDefinition Height="55*"></RowDefinition>
+            <RowDefinition Height="35*"></RowDefinition>
+            <RowDefinition Height="35*"></RowDefinition>
+            <RowDefinition Height="35*"></RowDefinition>
+            <RowDefinition Height="35*"></RowDefinition>
+            <RowDefinition Height="35*"></RowDefinition>
+            <RowDefinition Height="35*"></RowDefinition>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="35*"/>
             <RowDefinition Height="50*"/>
-            <RowDefinition Height="40*"/>
-            <RowDefinition Height="57*"/>
-            <RowDefinition Height="42*"/>
+            <RowDefinition Height="35*"/>
             <RowDefinition Height="50*"/>
-            <RowDefinition Height="24*"/>
-            <RowDefinition Height="22*"/>
+            <RowDefinition Height="60*"/>
             <RowDefinition Height="50*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="100*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="50*"></ColumnDefinition>
@@ -39,14 +41,16 @@
         </Grid.ColumnDefinitions>
         <Label Content="Доступные ресурсы:" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Height="34" Margin="16,0,13,0" Width="192"/>
         <Label Content="Управление ресурсами:" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="5" Height="34" Margin="6,0,89,0" Width="224"/>
-        <Label Content="Шахты:" VerticalAlignment="Top" FontWeight="Bold" FontSize="12" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Height="26" Width="54" />
-        <Label Content="Забиндить!" VerticalAlignment="Top" FontSize="12" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left" Height="26" Width="71" />
-        <Label Content="Разбойники:" VerticalAlignment="Top" FontWeight="Bold" FontSize="12" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" Grid.ColumnSpan="2" Height="26" Width="84" />
-        <Label Content="Забиндить!" VerticalAlignment="Top"  FontSize="12" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left" Height="26" Width="71" />
-        <Label Content="Шпионы:" VerticalAlignment="Top" FontWeight="Bold" FontSize="12" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" Height="26" Width="65" />
-        <Label Content="Забиндить!" VerticalAlignment="Top" FontSize="12" Grid.Row="4" Grid.Column="2" HorizontalAlignment="Left" Height="26" Width="71" />
-        <Label Content="Собаки:" VerticalAlignment="Top" FontWeight="Bold" FontSize="12" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left" Height="26" Width="56" />
-        <Label Content="Забиндить!" VerticalAlignment="Top" FontSize="12" Grid.Row="5" Grid.Column="2" HorizontalAlignment="Left" Height="26" Width="71" />
+        <Label Content="Золото:" VerticalAlignment="Top" FontWeight="Bold" FontSize="12" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Height="26" Width="54" Grid.RowSpan="2" />
+        <Label Content="Забиндить!" VerticalAlignment="Top" FontSize="12" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left" Height="26" Width="71" Grid.RowSpan="2" />
+        <Label Content="Шахты:" VerticalAlignment="Top" FontWeight="Bold" FontSize="12" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" Grid.ColumnSpan="2" Height="26" Width="84" Grid.RowSpan="2" />
+        <Label Content="Забиндить!" VerticalAlignment="Top"  FontSize="12" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left" Height="26" Width="71" Grid.RowSpan="2" />
+        <Label Content="Разбойники:" VerticalAlignment="Top" FontWeight="Bold" FontSize="12" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" Height="26" Width="65" Grid.RowSpan="2" />
+        <Label Content="Забиндить!" VerticalAlignment="Top" FontSize="12" Grid.Row="4" Grid.Column="2" HorizontalAlignment="Left" Height="26" Width="71" Grid.RowSpan="2" />
+        <Label Content="Шпионы:" VerticalAlignment="Top" FontWeight="Bold" FontSize="12" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left" Height="26" Width="56" Grid.RowSpan="2" />
+        <Label Content="Забиндить!" VerticalAlignment="Top" FontSize="12" Grid.Row="5" Grid.Column="2" HorizontalAlignment="Left" Height="26" Width="71" Grid.RowSpan="2" />
+        <Label Content="Собаки:" VerticalAlignment="Top" FontWeight="Bold" FontSize="12" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Left" Height="26" Width="56" Grid.RowSpan="2" />
+        <Label Content="Забиндить!" VerticalAlignment="Top" FontSize="12" Grid.Row="6" Grid.Column="2" HorizontalAlignment="Left" Height="26" Width="71" Grid.RowSpan="2" />
         <Button Width="195" Command="{Binding }" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="4" Grid.RowSpan="2" Grid.ColumnSpan="5">
             <Image Source="/Images/noimage.png" Width="128" />
         </Button>
@@ -59,22 +63,22 @@
         <Button Width="195" Command="{Binding }" HorizontalAlignment="Left" Grid.Row="4" Grid.Column="9" Grid.RowSpan="2">
             <Image Source="/Images/noimage.png" Width="128" />
         </Button>
-        <Label Content="Доступные действия:" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2" Height="34" Width="205" Margin="16,0,0,0"/>
-        <Image Source="/Images/noimage.png" Grid.Row="8" Grid.ColumnSpan="2" Grid.Column="1"  Grid.RowSpan="4"/>
-        <Label Content="Выбрано Забиндить!" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Grid.Row="7" Grid.Column="5" Grid.ColumnSpan="5" Height="34" Width="205" Margin="24,0,90,0"/>
-        <Button Content="Улучшить" Command="{Binding }" HorizontalAlignment="Left" Grid.Row="8" Grid.Column="9" Width="206" ></Button>
-        <Label Content="Стоимость:" VerticalAlignment="Top" FontWeight="Bold" FontSize="12" Grid.Row="8" Grid.Column="4" HorizontalAlignment="Left" Height="26" Width="81" />
-        <Label Content="Забиндить!" VerticalAlignment="Top" FontSize="12" Grid.Row="8" Grid.Column="5" HorizontalAlignment="Left" Height="26" Width="71" Grid.ColumnSpan="3" />
-        <Label Content="Противник:" VerticalAlignment="Center" FontWeight="Bold" FontSize="12" Grid.Row="10" Grid.Column="4" HorizontalAlignment="Left" Height="26" Width="81" Margin="0,8" />
-        <ComboBox Grid.Row="10" Grid.Column="9"></ComboBox>
-        <Label Content="Существ:" VerticalAlignment="Center" FontWeight="Bold" FontSize="12" Grid.Row="12" Grid.Column="4" HorizontalAlignment="Left" Height="26" Width="81" Margin="0,10" Grid.RowSpan="2" />
-        <Label Content="0" FontSize="12" Grid.Row="12" Grid.Column="5" HorizontalAlignment="Right" VerticalAlignment="Center" RenderTransformOrigin="1.75,0.423" Height="26" Margin="0,10" Width="16" Grid.RowSpan="2"/>
-        <StackPanel Orientation="Vertical" Grid.Row="12" Grid.Column="6" Grid.RowSpan="2">            
-            <Button x:Name="cmdUp" x:FieldModifier="private"  Content="˄" Width="14" Height="23"  />
-            <Button x:Name="cmdDown" x:FieldModifier="private"  Content="˅" Width="14" Height="23" />
+        <Label Content="Доступные действия:" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="2" Height="34" Width="205" Margin="16,0,0,0"/>
+        <Image Source="/Images/noimage.png" Grid.Row="9" Grid.ColumnSpan="2" Grid.Column="1"  Grid.RowSpan="4"/>
+        <Label Content="Выбрано Забиндить!" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Grid.Row="8" Grid.Column="5" Grid.ColumnSpan="5" Height="34" Width="205" Margin="24,0,90,0"/>
+        <Button Content="Улучшить" Command="{Binding }" HorizontalAlignment="Left" Grid.Row="9" Grid.Column="9" Width="206" ></Button>
+        <Label Content="Стоимость:" VerticalAlignment="Top" FontWeight="Bold" FontSize="12" Grid.Row="9" Grid.Column="4" HorizontalAlignment="Left" Height="26" Width="81" />
+        <Label Content="Забиндить!" VerticalAlignment="Top" FontSize="12" Grid.Row="9" Grid.Column="5" HorizontalAlignment="Left" Height="26" Width="71" Grid.ColumnSpan="3" />
+        <Label Content="Противник:" VerticalAlignment="Center" FontWeight="Bold" FontSize="12" Grid.Row="11" Grid.Column="4" HorizontalAlignment="Left" Height="26" Width="81" Margin="0,8" />
+        <ComboBox Grid.Row="11" Grid.Column="9"></ComboBox>
+        <Label Content="Существ:" VerticalAlignment="Center" FontWeight="Bold" FontSize="12" Grid.Row="13" Grid.Column="4" HorizontalAlignment="Left" Height="26" Width="81" Margin="0,10" />
+        <Label Content="0" FontSize="12" Grid.Row="13" Grid.Column="5" HorizontalAlignment="Right" VerticalAlignment="Center" RenderTransformOrigin="1.75,0.423" Height="26" Margin="0,10" Width="16" />
+        <StackPanel Orientation="Vertical" Grid.Row="13" Grid.Column="6" >
+            <Button x:Name="cmdUp" x:FieldModifier="private"  Content="˄" Width="14" Height="26"  />
+            <Button x:Name="cmdDown" x:FieldModifier="private"  Content="˅" Width="14" Height="26" />
         </StackPanel>
-        <Button Content="Отправить!" Command="{Binding }" HorizontalAlignment="Left" Grid.Row="12" Grid.Column="9" Width="206" Grid.RowSpan="2" ></Button>
-        <Button Content="MAX" Command="{Binding }" HorizontalAlignment="Left" Grid.Row="12" Grid.Column="7" Grid.ColumnSpan="2" Grid.RowSpan="2"  >
+        <Button Content="Отправить!" Command="{Binding }" HorizontalAlignment="Left" Grid.Row="13" Grid.Column="9" Width="206" Grid.RowSpan="1" ></Button>
+        <Button Content="MAX" Command="{Binding }" HorizontalAlignment="Left" Grid.Row="13" Grid.Column="7" Grid.ColumnSpan="2" Grid.RowSpan="1"  >
             <Button.LayoutTransform>
                 <RotateTransform Angle="-90"></RotateTransform>
             </Button.LayoutTransform>
