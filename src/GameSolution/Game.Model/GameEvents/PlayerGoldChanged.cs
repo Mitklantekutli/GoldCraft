@@ -1,4 +1,6 @@
-﻿namespace Game.Model.GameEvents
+﻿using Game.Model.Players;
+
+namespace Game.Model.GameEvents
 {
     public class PlayerGoldChanged : GameEvent
     {

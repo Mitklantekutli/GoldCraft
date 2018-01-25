@@ -1,4 +1,4 @@
-﻿namespace Game.Model.GameEvents
+﻿namespace Game.Model.Buildings
 {
     public class GoldMine
     {

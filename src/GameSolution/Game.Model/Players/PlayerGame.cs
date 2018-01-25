@@ -1,4 +1,7 @@
-﻿namespace Game.Model.GameEvents
+﻿using Game.Model.Buildings;
+using Game.Model.GameEvents;
+
+namespace Game.Model.Players
 {
     public class PlayerGame : IMoneyOwner
     {

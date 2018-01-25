@@ -41,22 +41,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GameEvents\AddBuildingUpgrader.cs" />
-    <Compile Include="GameEvents\Building.cs" />
-    <Compile Include="GameEvents\BuildingFactory.cs" />
-    <Compile Include="GameEvents\BuildingUpgrader.cs" />
-    <Compile Include="GameEvents\ExpBuildingUpgrader.cs" />
+    <Compile Include="Buildings\AddBuildingUpgrader.cs" />
+    <Compile Include="Buildings\Building.cs" />
+    <Compile Include="Buildings\BuildingFactory.cs" />
+    <Compile Include="Buildings\BuildingUpgrader.cs" />
+    <Compile Include="Buildings\ExpBuildingUpgrader.cs" />
     <Compile Include="GameEvents\GameEvent.cs" />
     <Compile Include="GameEvents\GameEventHandler.cs" />
     <Compile Include="GameEvents\GameEventType.cs" />
     <Compile Include="GameEvents\GameInstance.cs" />
-    <Compile Include="GameEvents\GoldMine.cs" />
+    <Compile Include="Buildings\GoldMine.cs" />
     <Compile Include="GameEvents\IMoneyOwner.cs" />
-    <Compile Include="GameEvents\Player.cs" />
+    <Compile Include="Players\Player.cs" />
     <Compile Include="GameEvents\PlayerConnected.cs" />
-    <Compile Include="GameEvents\PlayerGame.cs" />
+    <Compile Include="Players\PlayerGame.cs" />
     <Compile Include="GameEvents\PlayerGoldChanged.cs" />
-    <Compile Include="GameEvents\Room.cs" />
+    <Compile Include="Players\Room.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

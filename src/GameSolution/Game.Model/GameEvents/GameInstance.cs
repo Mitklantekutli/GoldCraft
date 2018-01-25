@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Game.Model.Players;
 
 namespace Game.Model.GameEvents
 {

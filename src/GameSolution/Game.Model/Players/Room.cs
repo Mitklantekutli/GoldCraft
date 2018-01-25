@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Game.Model.GameEvents
+namespace Game.Model.Players
 {
     public class Room
     {
