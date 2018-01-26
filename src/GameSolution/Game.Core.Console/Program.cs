@@ -18,13 +18,20 @@ namespace Game.Core.Console
             pg.Gold += 250;
             core.GameInstance.Players.Add(pg);
             pg.GoldMine.Building.Upgrader.Upgrade(pg);
-            pg.GoldMine.Building.Upgrader.Upgrade(pg);
+            pg.RogueCamp.Building.Upgrader.Upgrade(pg);
+            pg.SpyCamp.Building.Upgrader.Upgrade(pg);
+            pg.Doghouse.Building.Upgrader.Upgrade(pg);
             core.OnTick += (s, e) =>
             {
+                System.Console.Clear();
                 var cp = e.GameInstance.Players.First();
                 System.Console.WriteLine(e.Time);
                 System.Console.WriteLine(cp.Gold);
+                System.Console.WriteLine(cp.Rogues);
+                System.Console.WriteLine(cp.Spies);
+                System.Console.WriteLine(cp.Dogs);
                 System.Console.WriteLine(cp.GoldMine.RefreshTimeLeft/1000);
+                
             };
             core.Start();
             

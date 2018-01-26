@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Game.Model.Buildings
+﻿namespace Game.Model.Buildings
 {
     public abstract class TickBuilding
     {
-        public double RefreshTime = 5 * 1000;
-        public double RefreshTimeLeft = 5 * 1000;
+        public double RefreshTime = -1;
+        public double RefreshTimeLeft = -1;
+        public Building Building { get; set; }
 
         protected TickBuilding(double time)
         {
