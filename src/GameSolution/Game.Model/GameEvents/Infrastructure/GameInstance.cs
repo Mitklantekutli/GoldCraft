@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Game.Model.Players;
 
-namespace Game.Model.GameEvents
+namespace Game.Model.GameEvents.Infrastructure
 {
     public class GameInstance
     {

@@ -1,4 +1,5 @@
-﻿using Game.Model.Players;
+﻿using Game.Model.GameEvents.Infrastructure;
+using Game.Model.Players;
 
 namespace Game.Model.GameEvents
 {

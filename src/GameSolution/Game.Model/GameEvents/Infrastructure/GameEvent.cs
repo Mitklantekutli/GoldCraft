@@ -1,8 +1,4 @@
-﻿using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Game.Model.GameEvents
+﻿namespace Game.Model.GameEvents.Infrastructure
 {
 
     public class GameEvent

@@ -51,16 +51,18 @@
     <Compile Include="Buildings\RogueCamp.cs" />
     <Compile Include="Buildings\SpyCamp.cs" />
     <Compile Include="Buildings\TickBuilding.cs" />
-    <Compile Include="GameEvents\GameEvent.cs" />
-    <Compile Include="GameEvents\GameEventHandler.cs" />
-    <Compile Include="GameEvents\GameEventType.cs" />
-    <Compile Include="GameEvents\GameInstance.cs" />
+    <Compile Include="GameEvents\ActionBuild.cs" />
+    <Compile Include="GameEvents\PlayerBuildingUpgraded.cs" />
+    <Compile Include="GameEvents\Infrastructure\GameEvent.cs" />
+    <Compile Include="GameEvents\Infrastructure\GameEventHandler.cs" />
+    <Compile Include="GameEvents\Infrastructure\GameEventType.cs" />
+    <Compile Include="GameEvents\Infrastructure\GameInstance.cs" />
     <Compile Include="Buildings\GoldMine.cs" />
-    <Compile Include="GameEvents\IMoneyOwner.cs" />
+    <Compile Include="Players\IMoneyOwner.cs" />
     <Compile Include="Players\Player.cs" />
     <Compile Include="GameEvents\PlayerConnected.cs" />
     <Compile Include="Players\PlayerGame.cs" />
-    <Compile Include="GameEvents\PlayerGoldChanged.cs" />
+    <Compile Include="GameEvents\PlayerFieldChanged.cs" />
     <Compile Include="Players\Room.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Game.Model.GameEvents;
+using Game.Model.GameEvents.Infrastructure;
 
 namespace Game.Client
 {

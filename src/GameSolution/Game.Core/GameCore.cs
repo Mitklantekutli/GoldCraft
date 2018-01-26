@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Game.Model.GameEvents;
+using Game.Model.GameEvents.Infrastructure;
 
 namespace Game.Core
 {
@@ -16,7 +17,7 @@ namespace Game.Core
         public GameCore()
         {
             Events = new List<GameEvent>();
-            GameInstance = new Model.GameEvents.GameInstance();
+            GameInstance = new GameInstance();
             Handler = new GameEventHandler(GameInstance);
             Timer = new Timer();
             Timer.TimeTick += (o, s) =>

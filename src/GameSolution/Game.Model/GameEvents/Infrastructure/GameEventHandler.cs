@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using Game.Model.Players;
 
-namespace Game.Model.GameEvents
+namespace Game.Model.GameEvents.Infrastructure
 {
     public class GameEventHandler
     {
@@ -33,6 +35,16 @@ namespace Game.Model.GameEvents
         public void OnTick(double delta)
         {
             GameInstance.OnTick(delta);
+        }
+
+        public Player GetPlayer(long id)
+        {
+            return GameInstance.Players.Single(x => x.Player.Id == id).Player;
+        }
+
+        public PlayerGame GetGame(long id)
+        {
+            return GameInstance.Players.Single(x => x.Player.Id == id);
         }
     }
 }
