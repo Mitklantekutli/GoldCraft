@@ -21,11 +21,11 @@ namespace Game.Core.Console
             pg.RogueCamp.Building.Upgrader.Upgrade(pg);
             pg.SpyCamp.Building.Upgrader.Upgrade(pg);
             pg.Doghouse.Building.Upgrader.Upgrade(pg);
-            core.OnTick += (s, e) =>
+            core.Timer.TimeTick += (s, e) =>
             {
                 System.Console.Clear();
-                var cp = e.GameInstance.Players.First();
-                System.Console.WriteLine(e.Time);
+                var cp = core.GameInstance.Players.First();
+                System.Console.WriteLine(core.Timer.Time);
                 System.Console.WriteLine(cp.Gold);
                 System.Console.WriteLine(cp.Rogues);
                 System.Console.WriteLine(cp.Spies);

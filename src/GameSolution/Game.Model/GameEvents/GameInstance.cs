@@ -7,7 +7,6 @@ namespace Game.Model.GameEvents
     {
         public long Id { get; set; }
         public List<PlayerGame> Players { get; set; }
-        public bool Active { get; set; }
 
         public GameInstance()
         {
